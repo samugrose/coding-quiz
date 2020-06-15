@@ -33,7 +33,16 @@ function runGame() {
     console.log("running game");
 
     for (i = 0; i < questions.length; i++) {
+        //dynamically update content of main section.
+        //there will always be a main section, content varies. display: none for main section of questions?
+        var currentQ = document.querySelector("#main").textContent = questions[i];
+        //add logic to control flow of game, say correct or not
+        var userAnswer = false; //add buttons and create event listener that sets value of userAnswer to true
+        
+        while (userAnswer) {
+            //put 4 buttons, one of which has event listener to make the value true, use button id to target
 
+        }
     }
     //change through questions, for loop over array of options?
     //displays as block on page, tells you if you're correct or not,
