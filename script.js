@@ -30,6 +30,8 @@ var questions = ["Arrays in Javascript can be used to store ______",
   "The condition in an if/else statement is contained in _____.", "String values must be enclosed in _____.", "A very useful debugging tool is _______."];
 var score = 0;
 function runGame() {
+    document.querySelector(".main").style.display = "none";
+    document.querySelector("#start-timer").style.display = "none";
     console.log("running game");
 
     for (i = 0; i < questions.length; i++) {
@@ -38,7 +40,7 @@ function runGame() {
         var currentQ = document.querySelector("#main").textContent = questions[i];
         //add logic to control flow of game, say correct or not
         var userAnswer = false; //add buttons and create event listener that sets value of userAnswer to true
-        
+
         while (userAnswer) {
             //put 4 buttons, one of which has event listener to make the value true, use button id to target
 
