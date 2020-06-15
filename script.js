@@ -22,4 +22,30 @@ var buttonTracker = document.querySelector("#start-timer");
 buttonTracker.addEventListener("click", function(){
     event.preventDefault();
     setTime();
+    runGame();
 })
+
+var questions = ["Arrays in Javascript can be used to store ______",
+ "Commonly used data types DO NOT include ________.",
+  "The condition in an if/else statement is contained in _____.", "String values must be enclosed in _____.", "A very useful debugging tool is _______."];
+var score = 0;
+function runGame() {
+    console.log("running game");
+
+    for (i = 0; i < questions.length; i++) {
+
+    }
+    //change through questions, for loop over array of options?
+    //displays as block on page, tells you if you're correct or not,
+    //time subtracted if you get it wrong. 
+
+}
+
+//maybe have only one button actually link to next slide, display correct while waiting
+
+//make questions pages:
+// Arrays in Javascript can be used to store ______. (numbers, arrays, objects, AOTA)
+//commonly used data types DO NOT include ________. (strings, booleans, int, flax)
+//the condition in an if/else statement is contained in _____ (brackets, parenthesis, curly brack, slashes)
+//String value must be enclosed in _____ whend eclaring (usual stuff)
+//a very useful debugging tool is _______ (google chrome dev tools)
