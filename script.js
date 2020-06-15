@@ -10,7 +10,7 @@ function setTime() {
 
     if(secondsLeft === 0) {
       clearInterval(timerInterval);
-      sendMessage(); //can put scores into this method
+      //sendMessage(); //can put scores into this method
     }
 
   }, 1000);
@@ -40,11 +40,28 @@ function runGame() {
         var currentQ = document.querySelector("#main").textContent = questions[i];
         //add logic to control flow of game, say correct or not
         var userAnswer = false; //add buttons and create event listener that sets value of userAnswer to true
-
-        while (userAnswer) {
-            //put 4 buttons, one of which has event listener to make the value true, use button id to target
+        var answers = ["Numbers, Arrays, Objects, All of the Above", "Strings, Booleans, Int, Flax",
+        "Brackets, Parentheses, Curly Braces, Backslashes",
+            "Brackets, Parentheses, Curly Braces, Quotation Marks", 
+        "Chrome Inspector, Windows 95, Java Helpdesk, Potatoville"];
+        var choiceSelection = answers[i].split(", "); //gives you separate values
+        var mainEnd = document.querySelector(".main");
+        for (i = 0; i < choiceSelection.length; i++) {
+            //add buttons here, populate labels with array ontents
+            var button = document.createElement("button");
+            button.setAttribute("type", "button");
+            button.setAttribute("id", i);
+            button.textContent = choiceSelection[i];
+            console.log(choiceSelection[i]);
+            mainEnd.appendChild(button);
 
         }
+        // while (userAnswer) {
+        //     //put 4 buttons, one of which has event listener to make the value true, use button id to target
+        //     //create buttons, append to currentQsection
+            
+
+        // }
     }
     //change through questions, for loop over array of options?
     //displays as block on page, tells you if you're correct or not,
