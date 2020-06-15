@@ -15,5 +15,11 @@ function setTime() {
 
   }, 1000);
 }
+//when you click the button you start the quiz and dynamically change the content on the screen
 
-setTime();
+var buttonTracker = document.querySelector("#start-timer");
+
+buttonTracker.addEventListener("click", function(){
+    event.preventDefault();
+    setTime();
+})
