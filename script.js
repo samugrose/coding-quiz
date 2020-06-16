@@ -173,10 +173,12 @@ function runGame() {
         fifthPage.style.display="none";
         
         currentSeconds = secondsLeft;
+        timeEl.textContent = currentSeconds;
         
             console.log("That's Right! + " + currentSeconds);
             sendMessage();
-            window.location.href="high-scores.html";
+            //window.location.href="high-scores.html"; redirect to initials page,
+
 
         //alerter.textContent = "";
             //display new page
