@@ -68,17 +68,93 @@ function runGame() {
     // other buttons all same class- tell you you're wrong and take time away
     var currentSeconds = 0;
     var btn4 = document.querySelector(".button4");
-    btn4.addEventListener("click" function(){
+
+    btn4.addEventListener("click", function(event){
+        event.preventDefault();
         //change to landing page 2, give it the display properties from #1 above
         //display "that's right!" for a few seconds, maybe use % operator
-        var tempTimer = currentSeconds;
-        while (currentSeconds - secondsLeft >= 3) { //70 - 67 > 3
-            //display a correct message below the buttons in the page
-            alerter.textContent = "That's Right!";
-        }
-        alerter.textContent = "";
+        firstPage.style.display="none";
+        
+        secondPage.style.display="flex";
+        secondPage.style.flexDirection="column";
+        currentSeconds = secondsLeft;
+        
+            console.log("That's Right! + " + currentSeconds);
+
+
+        //alerter.textContent = "";
             //display new page
-    })
+    });
+
+    var btn8 = document.querySelector(".button8");
+    btn8.addEventListener("click", function(event){
+        event.preventDefault();
+        //change to landing page 2, give it the display properties from #1 above
+        //display "that's right!" for a few seconds, maybe use % operator
+        secondPage.style.display="none";
+        
+        thirdPage.style.display="flex";
+        thirdPage.style.flexDirection="column";
+        currentSeconds = secondsLeft;
+        
+            console.log("That's Right! + " + currentSeconds);
+
+
+        //alerter.textContent = "";
+            //display new page
+    });
+
+        var btn10 = document.querySelector(".button10");
+    btn10.addEventListener("click", function(event){
+        event.preventDefault();
+        //change to landing page 2, give it the display properties from #1 above
+        //display "that's right!" for a few seconds, maybe use % operator
+        thirdPage.style.display="none";
+        
+        fourthPage.style.display="flex";
+        fourthPage.style.flexDirection="column";
+        currentSeconds = secondsLeft;
+        
+            console.log("That's Right! + " + currentSeconds);
+
+
+        //alerter.textContent = "";
+            //display new page
+    });
+
+        var btn16 = document.querySelector(".button16");
+        btn16.addEventListener("click", function(event){
+        event.preventDefault();
+        //change to landing page 2, give it the display properties from #1 above
+        //display "that's right!" for a few seconds, maybe use % operator
+        fourthPage.style.display="none";
+        
+        fifthPage.style.display="flex";
+        fifthPage.style.flexDirection="column";
+        currentSeconds = secondsLeft;
+        
+            console.log("That's Right! + " + currentSeconds);
+
+
+        //alerter.textContent = "";
+            //display new page
+    });
+
+    var btn17 = document.querySelector(".button17");
+        btn17.addEventListener("click", function(event){
+        event.preventDefault();
+        //change to landing page 2, give it the display properties from #1 above
+        //display "that's right!" for a few seconds, maybe use % operator
+        fifthPage.style.display="none";
+        
+        currentSeconds = secondsLeft;
+        
+            console.log("That's Right! + " + currentSeconds);
+
+
+        //alerter.textContent = "";
+            //display new page
+    });
 
     //bring up page for q1, with questions loaded
 
