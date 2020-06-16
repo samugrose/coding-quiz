@@ -18,9 +18,11 @@ function setTime() {
 //when you click the button you start the quiz and dynamically change the content on the screen
 
 var buttonTracker = document.querySelector("#start-timer");
+var firstPage = document.querySelector(".landing-page");
 
 buttonTracker.addEventListener("click", function(){
     event.preventDefault();
+    
     setTime();
     runGame();
 })
@@ -32,12 +34,18 @@ var score = 0;
 function runGame() {
     document.querySelector(".main").style.display = "none";
     document.querySelector("#start-timer").style.display = "none";
+    firstPage.style.display="flex";
+    firstPage.style.flexDirection="column";
     console.log("running game");
 
     for (i = 0; i < questions.length; i++) {
         //dynamically update content of main section.
         //there will always be a main section, content varies. display: none for main section of questions?
         var currentQ = document.querySelector("#main").textContent = questions[i];
+        document.querySelector(".button1").setAttribute = ("class", "d-flex");
+        document.querySelector(".button2").setAttribute = ("class", "d-flex");
+        document.querySelector(".button3").setAttribute = ("class", "d-flex");
+        document.querySelector(".button4").setAttribute = ("class", "d-flex");
         //add logic to control flow of game, say correct or not
         var userAnswer = false; //add buttons and create event listener that sets value of userAnswer to true
         var answers = ["Numbers, Arrays, Objects, All of the Above", "Strings, Booleans, Int, Flax",
@@ -48,12 +56,11 @@ function runGame() {
         var mainEnd = document.querySelector(".main");
         for (i = 0; i < choiceSelection.length; i++) {
             //add buttons here, populate labels with array ontents
-            var button = document.createElement("button");
+            //add reference to data index for button to get index
             button.setAttribute("type", "button");
-            button.setAttribute("id", i);
+
             button.textContent = choiceSelection[i];
             console.log(choiceSelection[i]);
-            mainEnd.appendChild(button);
 
         }
         // while (userAnswer) {
