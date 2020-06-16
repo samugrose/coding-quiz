@@ -1,3 +1,13 @@
+function doSomething() {
+    console.info('DOM loaded');
+  }
+  
+  if (document.readyState === 'loading') {  // Loading hasn't finished yet
+    document.addEventListener('DOMContentLoaded', doSomething);
+  } else {  // `DOMContentLoaded` has already fired
+    doSomething();
+  }
+
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("#main");
 
@@ -27,6 +37,8 @@ buttonTracker.addEventListener("click", function(){
     runGame();
 })
 
+// add event listener for dom completion
+
 var questions = ["Arrays in Javascript can be used to store ______",
  "Commonly used data types DO NOT include ________.",
   "The condition in an if/else statement is contained in _____.", "String values must be enclosed in _____.", "A very useful debugging tool is _______."];
@@ -42,27 +54,39 @@ function runGame() {
         //dynamically update content of main section.
         //there will always be a main section, content varies. display: none for main section of questions?
         var currentQ = document.querySelector("#main").textContent = questions[i];
-        document.querySelector(".button1").setAttribute = ("class", "d-flex");
-        document.querySelector(".button2").setAttribute = ("class", "d-flex");
-        document.querySelector(".button3").setAttribute = ("class", "d-flex");
-        document.querySelector(".button4").setAttribute = ("class", "d-flex");
+        
         //add logic to control flow of game, say correct or not
         var userAnswer = false; //add buttons and create event listener that sets value of userAnswer to true
         var answers = ["Numbers, Arrays, Objects, All of the Above", "Strings, Booleans, Int, Flax",
         "Brackets, Parentheses, Curly Braces, Backslashes",
             "Brackets, Parentheses, Curly Braces, Quotation Marks", 
         "Chrome Inspector, Windows 95, Java Helpdesk, Potatoville"];
-        var choiceSelection = answers[i].split(", "); //gives you separate values
-        var mainEnd = document.querySelector(".main");
-        for (i = 0; i < choiceSelection.length; i++) {
+
+console.log(answers);
+
+        var choiceSelection = answers[i].split(", "); //gives youseparate values
+        console.log(choiceSelection + " choiceSelection");
+        //var mainEnd = document.querySelector(".main");
+        var currentButton;
+        for (j = 1; j <= choiceSelection.length; j++) {
+            console.log(choiceSelection[j - 1] + " value at j");
+            console.log("button" + j);
             //add buttons here, populate labels with array ontents
             //add reference to data index for button to get index
-            button.setAttribute("type", "button");
-
-            button.textContent = choiceSelection[i];
-            console.log(choiceSelection[i]);
-
+            var buttonString = (".button" + j);
+            
+            //console.log();
+        //    if (j === 0) {
+        //     currentButton = document.querySelector("");
+        //    }
+            currentButton = document.querySelector(buttonString);
+            var answer = choiceSelection[j - 1];
+            currentButton.textContent = answer;
+        
         }
+
+        //$(this).attr("value")); inside of a click event for button value
+    
         // while (userAnswer) {
         //     //put 4 buttons, one of which has event listener to make the value true, use button id to target
         //     //create buttons, append to currentQsection
