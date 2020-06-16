@@ -54,7 +54,7 @@ var answers = ["Numbers, Arrays, Objects, All of the Above", "Strings, Booleans,
             "Brackets, Parentheses, Curly Braces, Quotation Marks", 
         "Chrome Inspector, Windows 95, Java Helpdesk, Potatoville"];
 var currentq = "";
-
+var alerter = document.querySelector(".rightOrWrong");
 function runGame() {
     //hide the two main sections when button is pushed
     document.querySelector("#main").style.display = "none";
@@ -74,9 +74,10 @@ function runGame() {
         var tempTimer = currentSeconds;
         while (currentSeconds - secondsLeft >= 3) { //70 - 67 > 3
             //display a correct message below the buttons in the page
-
+            alerter.textContent = "That's Right!";
         }
-
+        alerter.textContent = "";
+            //display new page
     })
 
     //bring up page for q1, with questions loaded
