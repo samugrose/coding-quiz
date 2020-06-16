@@ -62,6 +62,7 @@ function runGame() {
             "Brackets, Parentheses, Curly Braces, Quotation Marks", 
         "Chrome Inspector, Windows 95, Java Helpdesk, Potatoville"];
 
+            var correctAnswers = [3, 3, 1, 3, 0]; //index value of correct answers, tied to button value
 console.log(answers);
 
         var choiceSelection = answers[i].split(", "); //gives youseparate values
@@ -74,16 +75,17 @@ console.log(answers);
             //add buttons here, populate labels with array ontents
             //add reference to data index for button to get index
             var buttonString = (".button" + j);
-            
-            //console.log();
-        //    if (j === 0) {
-        //     currentButton = document.querySelector("");
-        //    }
+        
             currentButton = document.querySelector(buttonString);
             var answer = choiceSelection[j - 1];
             currentButton.textContent = answer;
-        
         }
+
+        $(".btn-primary").on("click", function() { 
+            var valueClicked = $(this).attr("value");
+            console.log("you clicked " + valueClicked);
+        })
+
 
         //$(this).attr("value")); inside of a click event for button value
     
