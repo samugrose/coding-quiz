@@ -28,7 +28,7 @@ function setTime() {
 //when you click the button you start the quiz and dynamically change the content on the screen
 
 var buttonTracker = document.querySelector("#start-timer");
-var firstPage = document.querySelector(".landing-page");
+var firstPage = document.querySelector(".landing-page1");
 
 buttonTracker.addEventListener("click", function(){
     event.preventDefault();
@@ -43,48 +43,91 @@ var questions = ["Arrays in Javascript can be used to store ______",
  "Commonly used data types DO NOT include ________.",
   "The condition in an if/else statement is contained in _____.", "String values must be enclosed in _____.", "A very useful debugging tool is _______."];
 var score = 0;
+var correctAnswers = [3, 3, 1, 3, 0];
+
+var answers = ["Numbers, Arrays, Objects, All of the Above", "Strings, Booleans, Int, Flax",
+        "Brackets, Parentheses, Curly Braces, Backslashes",
+            "Brackets, Parentheses, Curly Braces, Quotation Marks", 
+        "Chrome Inspector, Windows 95, Java Helpdesk, Potatoville"];
+var currentq = "";
+
 function runGame() {
+    //hide the two main sections when button is pushed
+    document.querySelector("#main").style.display = "none";
     document.querySelector(".main").style.display = "none";
     document.querySelector("#start-timer").style.display = "none";
     firstPage.style.display="flex";
     firstPage.style.flexDirection="column";
     console.log("running game");
 
-    for (i = 0; i < questions.length; i++) {
-        //dynamically update content of main section.
-        //there will always be a main section, content varies. display: none for main section of questions?
-        var currentQ = document.querySelector("#main").textContent = questions[i];
+    //bring up page for q1, with questions loaded
+
+    // for (i = 0; i < questions.length; i++) {
+    //     //dynamically update content of main section.
+    //     //there will always be a main section, content varies. display: none for main section of questions?
+    //     currentQ = document.querySelector("#main").textContent = questions[i];
+    //     console.log(currentQ + "got to poin of answering");
         
-        //add logic to control flow of game, say correct or not
-        var userAnswer = false; //add buttons and create event listener that sets value of userAnswer to true
-        var answers = ["Numbers, Arrays, Objects, All of the Above", "Strings, Booleans, Int, Flax",
-        "Brackets, Parentheses, Curly Braces, Backslashes",
-            "Brackets, Parentheses, Curly Braces, Quotation Marks", 
-        "Chrome Inspector, Windows 95, Java Helpdesk, Potatoville"];
-
-            var correctAnswers = [3, 3, 1, 3, 0]; //index value of correct answers, tied to button value
-console.log(answers);
-
-        var choiceSelection = answers[i].split(", "); //gives youseparate values
-        console.log(choiceSelection + " choiceSelection");
-        //var mainEnd = document.querySelector(".main");
-        var currentButton;
-        for (j = 1; j <= choiceSelection.length; j++) {
-            console.log(choiceSelection[j - 1] + " value at j");
-            console.log("button" + j);
-            //add buttons here, populate labels with array ontents
-            //add reference to data index for button to get index
-            var buttonString = (".button" + j);
+    //     //add logic to control flow of game, say correct or not //add buttons and create event listener that sets value of userAnswer to true
         
-            currentButton = document.querySelector(buttonString);
-            var answer = choiceSelection[j - 1];
-            currentButton.textContent = answer;
-        }
 
-        $(".btn-primary").on("click", function() { 
-            var valueClicked = $(this).attr("value");
-            console.log("you clicked " + valueClicked);
-        })
+    //          //index value of correct answers, tied to button value
+
+
+    //     var choiceSelection = answers[i].split(", "); //gives youseparate values
+    //     console.log(choiceSelection + " choiceSelection");
+    //     //var mainEnd = document.querySelector(".main");
+    //     var currentButton;
+
+    //     //loads buttons with info
+    //     for (j = 1; j <= choiceSelection.length; j++) {
+    //         console.log(choiceSelection[j - 1] + " value at j");
+            
+    //         //add buttons here, populate labels with array ontents
+    //         //add reference to data index for button to get index
+    //         var buttonString = (".button" + j);
+    //         console.log("button" + j);
+    //         currentButton = document.querySelector(buttonString);
+    //         console.log("just after button");
+    //         var answer = choiceSelection[j - 1];
+    //         console.log("got here too");
+    //         currentButton.textContent = answer;
+    //     }
+
+        
+    //         var correctAnswer = correctAnswers[i];
+    //         valueClicked = clicker();
+    //         var userAnswer = "false";
+    //         while (userAnswer === false) {
+    //             valueClicked = clicker();
+    //             if (valueClicked === correctAnswer) {
+    //                 userAnswer = true;
+    //             }
+    //             console.log("new choice clicked: " + valueClicked);
+    //         }
+    //         console.log(valueClicked + " got you out of the loop");
+    //        // var valueClicked = getValue;
+            
+    //             console.log("you clicked " + valueClicked);
+              
+        
+    //     //     while (valueClicked !== correctAnswer) {
+    //     //         $("#rightOrWrong").text("wrong!");
+    //     //         console.log("you clicked " + valueClicked);
+    //     // }
+    //        // $("#rightOrWrong").text("That's right!");
+    //         //var seconds = secondsLeft;
+    //     }
+
+    //     var valueClicked = "";
+    //     function clicker(valueclicked) {
+    //         $(".btn-primary").on("click", function() { 
+    //             valueClicked = $(this).attr("value");
+    //             console.log(valueClicked);
+    //         });
+    //     }
+
+        
 
 
         //$(this).attr("value")); inside of a click event for button value
@@ -100,7 +143,7 @@ console.log(answers);
     //displays as block on page, tells you if you're correct or not,
     //time subtracted if you get it wrong. 
 
-}
+
 
 //maybe have only one button actually link to next slide, display correct while waiting
 
