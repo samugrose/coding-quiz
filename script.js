@@ -29,6 +29,10 @@ function setTime() {
 
 var buttonTracker = document.querySelector("#start-timer");
 var firstPage = document.querySelector(".landing-page1");
+var secondPage = document.querySelector(".landing-page2");
+var thirdPage = document.querySelector(".landing-page3");
+var fourthPage = document.querySelector(".landing-page4");
+var fifthPage = document.querySelector(".landing-page5");
 
 buttonTracker.addEventListener("click", function(){
     event.preventDefault();
@@ -59,6 +63,21 @@ function runGame() {
     firstPage.style.display="flex";
     firstPage.style.flexDirection="column";
     console.log("running game");
+
+    //push correct button to get to page 2 - button 4 class
+    // other buttons all same class- tell you you're wrong and take time away
+    var currentSeconds = 0;
+    var btn4 = document.querySelector(".button4");
+    btn4.addEventListener("click" function(){
+        //change to landing page 2, give it the display properties from #1 above
+        //display "that's right!" for a few seconds, maybe use % operator
+        var tempTimer = currentSeconds;
+        while (currentSeconds - secondsLeft >= 3) { //70 - 67 > 3
+            //display a correct message below the buttons in the page
+
+        }
+
+    })
 
     //bring up page for q1, with questions loaded
 
