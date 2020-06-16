@@ -20,10 +20,16 @@ function setTime() {
 
     if(secondsLeft === 0) {
       clearInterval(timerInterval);
-      //sendMessage(); //can put scores into this method
+      sendMessage(); //can put scores into this method
     }
 
   }, 1000);
+}
+
+function sendMessage() {
+    alert("Game Over!");
+    //go to score page
+
 }
 //when you click the button you start the quiz and dynamically change the content on the screen
 
@@ -54,7 +60,15 @@ var answers = ["Numbers, Arrays, Objects, All of the Above", "Strings, Booleans,
             "Brackets, Parentheses, Curly Braces, Quotation Marks", 
         "Chrome Inspector, Windows 95, Java Helpdesk, Potatoville"];
 var currentq = "";
-var alerter = document.querySelector(".rightOrWrong");
+var alerter = document.querySelector(".rightOrWrong1");
+
+function timeOutRight() {
+    alerter.textContent = "That's right!";
+    setTimeout(function() {
+        alerter.textContent = "";
+    }, (3 * 1000));
+}
+
 function runGame() {
     //hide the two main sections when button is pushed
     document.querySelector("#main").style.display = "none";
@@ -73,12 +87,19 @@ function runGame() {
         event.preventDefault();
         //change to landing page 2, give it the display properties from #1 above
         //display "that's right!" for a few seconds, maybe use % operator
+        //timeOutRight();
+        alerter.textContent = "That's right!";
+        setTimeout(function() {
+            alerter.textContent = "";
+        }, (3 * 1000));
         firstPage.style.display="none";
         
         secondPage.style.display="flex";
         secondPage.style.flexDirection="column";
         currentSeconds = secondsLeft;
         
+        alerter.textContent = "That's right!"
+        timeOutRight();
             console.log("That's Right! + " + currentSeconds);
 
 
@@ -91,6 +112,7 @@ function runGame() {
         event.preventDefault();
         //change to landing page 2, give it the display properties from #1 above
         //display "that's right!" for a few seconds, maybe use % operator
+        timeOutRight();
         secondPage.style.display="none";
         
         thirdPage.style.display="flex";
@@ -109,6 +131,7 @@ function runGame() {
         event.preventDefault();
         //change to landing page 2, give it the display properties from #1 above
         //display "that's right!" for a few seconds, maybe use % operator
+        timeOutRight();
         thirdPage.style.display="none";
         
         fourthPage.style.display="flex";
@@ -125,6 +148,7 @@ function runGame() {
         var btn16 = document.querySelector(".button16");
         btn16.addEventListener("click", function(event){
         event.preventDefault();
+        timeOutRight();
         //change to landing page 2, give it the display properties from #1 above
         //display "that's right!" for a few seconds, maybe use % operator
         fourthPage.style.display="none";
@@ -143,6 +167,7 @@ function runGame() {
     var btn17 = document.querySelector(".button17");
         btn17.addEventListener("click", function(event){
         event.preventDefault();
+        timeOutRight();
         //change to landing page 2, give it the display properties from #1 above
         //display "that's right!" for a few seconds, maybe use % operator
         fifthPage.style.display="none";
@@ -150,7 +175,8 @@ function runGame() {
         currentSeconds = secondsLeft;
         
             console.log("That's Right! + " + currentSeconds);
-
+            sendMessage();
+            window.location.href="high-scores.html";
 
         //alerter.textContent = "";
             //display new page
