@@ -189,6 +189,7 @@ function runGame() {
             //display new page
     });
 
+    var scoreString = "";
     var subButton = document.querySelector(".button21");
     subButton.addEventListener("click", function() {
         event.preventDefault();
@@ -197,8 +198,14 @@ function runGame() {
         console.log(document.querySelector("#initials1").value);
         var buttonVal = document.querySelector("#initials1").value;
         console.log(buttonVal + " HERE");
-        var initials = buttonVal + " - " + currentSeconds; //this is their initals plus score
+        scoreString = buttonVal + " - " + currentSeconds; //this is their initals plus score
         console.log(initials);
+    });
+
+    var goToScores = document.querySelector(".buttonSub");
+    goToScores.addEventListener("click", function() {
+        console.log("clicked button to end");
+        //add button, display scores
     });
 
     //bring up page for q1, with questions loaded
