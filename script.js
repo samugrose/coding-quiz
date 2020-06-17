@@ -11,7 +11,7 @@ function doSomething() {
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("#main");
 var gameOver = false;
-var secondsLeft = 75;
+var secondsLeft = 5;
 //make an onclick that sets the time to 75
 function setTime() {
   var timerInterval = setInterval(function() {
@@ -23,8 +23,11 @@ function setTime() {
     }
     if(secondsLeft === 0) {
       gameOver = true;
-      sendMessage(); //can put scores into this method
       clearInterval(timerInterval);
+      currentPage.style.display = "none";
+      sixthPage.style.display="flex";
+      sixthPage.style.flexDirection="column";
+      
     }
 
   }, 1000);
@@ -73,7 +76,7 @@ function timeOutRight() {
         alerter.textContent = "";
     }, (3 * 1000));
 }
-
+var currentPage = "";
 function runGame() {
     //hide the two main sections when button is pushed
     document.querySelector("#main").style.display = "none";
@@ -81,6 +84,7 @@ function runGame() {
     document.querySelector("#start-timer").style.display = "none";
     firstPage.style.display="flex";
     firstPage.style.flexDirection="column";
+    currentPage = firstPage;
     console.log("running game");
 
     //push correct button to get to page 2 - button 4 class
@@ -101,6 +105,7 @@ function runGame() {
         
         secondPage.style.display="flex";
         secondPage.style.flexDirection="column";
+        currentPage = secondPage;
         currentSeconds = secondsLeft;
         
         alerter.textContent = "That's right!"
@@ -122,6 +127,7 @@ function runGame() {
         
         thirdPage.style.display="flex";
         thirdPage.style.flexDirection="column";
+        currentPage = thirdPage;
         currentSeconds = secondsLeft;
         
             console.log("That's Right! + " + currentSeconds);
@@ -141,6 +147,7 @@ function runGame() {
         
         fourthPage.style.display="flex";
         fourthPage.style.flexDirection="column";
+        currentPage = fourthPage;
         currentSeconds = secondsLeft;
         
             console.log("That's Right! + " + currentSeconds);
@@ -160,6 +167,7 @@ function runGame() {
         
         fifthPage.style.display="flex";
         fifthPage.style.flexDirection="column";
+        currentPage = fifthPage;
         currentSeconds = secondsLeft;
         
             console.log("That's Right! + " + currentSeconds);
