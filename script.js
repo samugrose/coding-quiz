@@ -11,24 +11,23 @@ function doSomething() {
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("#main");
 var gameOver = false;
-var secondsLeft = 5;
+var secondsLeft = 75;
 //make an onclick that sets the time to 75
 function setTime() {
   var timerInterval = setInterval(function() {
     if (!gameOver) {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
-    } else {
+    } else if(secondsLeft === 0) {
+        gameOver = true;
+        clearInterval(timerInterval);
+        currentPage.style.display = "none";
+        sixthPage.style.display="flex";
+        sixthPage.style.flexDirection="column";
+      } else { //secondsLeft != 0, game is not over per boolean
         timeEl.textContent = currentSeconds;
     }
-    if(secondsLeft === 0) {
-      gameOver = true;
-      clearInterval(timerInterval);
-      currentPage.style.display = "none";
-      sixthPage.style.display="flex";
-      sixthPage.style.flexDirection="column";
-      
-    }
+    
 
   }, 1000);
 }
@@ -77,6 +76,7 @@ function timeOutRight() {
     }, (3 * 1000));
 }
 var currentPage = "";
+var currentSeconds = 0;
 function runGame() {
     //hide the two main sections when button is pushed
     document.querySelector("#main").style.display = "none";
@@ -89,7 +89,7 @@ function runGame() {
 
     //push correct button to get to page 2 - button 4 class
     // other buttons all same class- tell you you're wrong and take time away
-    var currentSeconds = 0;
+    
     var btn4 = document.querySelector(".button4");
 
     btn4.addEventListener("click", function(event){
@@ -202,6 +202,8 @@ function runGame() {
     });
 
     var scoreString = "";
+    var topGetter = document.querySelector("#top");
+    var scoreGetter = document.querySelector(".scorePage");
     var subButton = document.querySelector(".button21"); //submit button
     subButton.addEventListener("click", function() {
         event.preventDefault();
@@ -214,6 +216,9 @@ function runGame() {
         scoreString = buttonVal + " - " + currentSeconds; //this is their initals plus score
         console.log(initials);
         sixthPage.style.display = "none"; //gets rid of sixth page, now display the score page
+        topGetter.style.display = "none";
+        scoreGetter.style.display = "flex";
+        scoreGetter.style.flexDirection = "column";
 
     });
 
