@@ -10,16 +10,19 @@ function doSomething() {
 
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("#main");
-
+var gameOver = false;
 var secondsLeft = 75;
 //make an onclick that sets the time to 75
 function setTime() {
   var timerInterval = setInterval(function() {
+    if (!gameOver) {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
-
+    } else {
+        timeEl.textContent = currentSeconds;
+    }
     if(secondsLeft === 0) {
-      
+      gameOver = true;
       sendMessage(); //can put scores into this method
       clearInterval(timerInterval);
     }
@@ -28,7 +31,7 @@ function setTime() {
 }
 
 function sendMessage() {
-    alert("Game Over!");
+    //alert("Game Over!");
     //go to score page
 
 }
@@ -175,7 +178,8 @@ function runGame() {
         fifthPage.style.display="none";
         
         currentSeconds = secondsLeft;
-        timeEl.textContent = currentSeconds;
+        //timeEl.textContent = currentSeconds;
+        gameOver = true;
         
 
             console.log("That's Right! + " + currentSeconds);
@@ -190,9 +194,10 @@ function runGame() {
     });
 
     var scoreString = "";
-    var subButton = document.querySelector(".button21");
+    var subButton = document.querySelector(".button21"); //submit button
     subButton.addEventListener("click", function() {
         event.preventDefault();
+        // gameOver = true;
         //var submish= document.querySelector("#initials").submit();
         //console.log(submish);
         console.log(document.querySelector("#initials1").value);
@@ -200,12 +205,8 @@ function runGame() {
         console.log(buttonVal + " HERE");
         scoreString = buttonVal + " - " + currentSeconds; //this is their initals plus score
         console.log(initials);
-    });
+        sixthPage.style.display = "none"; //gets rid of sixth page, now display the score page
 
-    var goToScores = document.querySelector(".buttonSub");
-    goToScores.addEventListener("click", function() {
-        console.log("clicked button to end");
-        //add button, display scores
     });
 
     //bring up page for q1, with questions loaded
