@@ -219,7 +219,19 @@ function runGame() {
         topGetter.style.display = "none";
         scoreGetter.style.display = "flex";
         scoreGetter.style.flexDirection = "column";
-
+        window.localStorage.setItem(scoreString, JSON.stringify(currentSeconds));
+        var scores = document.querySelector(".scoreList");
+        var newLi = document.createElement("li");
+        newLi.textContent = scoreString; //adds initials - score as text of li
+        console.log(scores.hasChildNodes());
+        if (scores.hasChildNodes()) {
+            
+        } else { //has no li's
+            scores.appendChild(newLi);
+            console.log("child appended " + newLi)
+        }
+        //scores.appendChild(newLi);
+        //can parse localstorage into int and ompare to see where to prepend, using temp variable for whatever's in the list?
     });
 
     //bring up page for q1, with questions loaded
