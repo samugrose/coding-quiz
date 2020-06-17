@@ -19,8 +19,9 @@ function setTime() {
     timeEl.textContent = secondsLeft;
 
     if(secondsLeft === 0) {
-      clearInterval(timerInterval);
+      
       sendMessage(); //can put scores into this method
+      clearInterval(timerInterval);
     }
 
   }, 1000);
@@ -39,6 +40,7 @@ var secondPage = document.querySelector(".landing-page2");
 var thirdPage = document.querySelector(".landing-page3");
 var fourthPage = document.querySelector(".landing-page4");
 var fifthPage = document.querySelector(".landing-page5");
+var sixthPage = document.querySelector(".landing-page6");
 
 buttonTracker.addEventListener("click", function(){
     event.preventDefault();
@@ -175,8 +177,11 @@ function runGame() {
         currentSeconds = secondsLeft;
         timeEl.textContent = currentSeconds;
         
+
             console.log("That's Right! + " + currentSeconds);
             sendMessage();
+            sixthPage.style.display="flex";
+            sixthPage.style.flexDirection="column";
             //window.location.href="high-scores.html"; redirect to initials page,
 
 
