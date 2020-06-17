@@ -189,6 +189,18 @@ function runGame() {
             //display new page
     });
 
+    var subButton = document.querySelector(".button21");
+    subButton.addEventListener("click", function() {
+        event.preventDefault();
+        //var submish= document.querySelector("#initials").submit();
+        //console.log(submish);
+        console.log(document.querySelector("#initials1").value);
+        var buttonVal = document.querySelector("#initials1").value;
+        console.log(buttonVal + " HERE");
+        var initials = buttonVal + " - " + currentSeconds; //this is their initals plus score
+        console.log(initials);
+    });
+
     //bring up page for q1, with questions loaded
 
     // for (i = 0; i < questions.length; i++) {
