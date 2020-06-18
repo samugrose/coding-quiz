@@ -9,15 +9,20 @@
 </head>
 <body>
     <section class="container d-flex justify-content-between" id="top">
-    <a href="high-scores.html"> <h3>View High Scores</h3> </a>
+    <a class="scoreLink"><h3>View High Scores</h3></a>
 
     <h3 id="seconds">Time: <span class="time">0</span></h3>
 </section>
 
-    <section class="container d-flex flex-column justify-content-center align-items-center">
-        <h3 class="main">Coding Quiz Challenge</h3> <!--center this-->
-        <h3 id="main">Welcome to the coding quiz.</h3>
 
+    <section class="container d-flex flex-column justify-content-center align-items-center">
+        
+        <h3 id="main">Coding Quiz Challenge</h3> <!--center this-->
+        <h3 class="main">Welcome to the coding quiz.</h3>
+        <button type="button" id="start-timer">Start quiz</button>
+    </section>
+
+    <section class="container d-flex flex-column justify-content-center align-items-center">
         <section class="landing-page1">
             <h3>Arrays in Javascript can be used to store ______.</h3>
             <button class="btn btn-primary  " value ="0" type="button"><span class="button1">Numbers</span></button>
@@ -102,10 +107,10 @@
 <section class="scorePage">
     <h2 id="scores">High Scores:</h2>
     <ol class="scoreList"></ol>
+    <button class="btn btn-primary  button22" value ="0" type="button"><span class="backButton">Go Back</span></button>
 </section>
-
-        <button type="button" id="start-timer">Start quiz</button>
-    </section>
+</section>
+        
 
 
     
